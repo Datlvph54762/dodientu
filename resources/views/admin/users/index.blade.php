@@ -40,15 +40,15 @@
                 <tbody>
                     @forelse ($users as $user)
                         <tr>
-                            <td class="fw-semibold">{{ $user->name }}</td>
-                            <td>{{ $user->email }}</td>
-                            <td>
+                            <td  class="fw-semibold">{{ $user->name }}</td>
+                            <td style="text-align: center;">{{ $user->email }}</td>
+                            <td style="text-align: center;">
                                 <span class="badge bg-{{ $user->is_admin == 1 ? 'danger' : 'secondary' }}">
                                     {{ $user->is_admin == 1 ? 'Admin' : 'User' }}
                                 </span>
                             </td>
-                            <td>{{ $user->created_at->format('d/m/Y') }}</td>
-                            <td>
+                            <td style="text-align: center;">{{ $user->created_at->format('d/m/Y') }}</td>
+                            <td style="text-align: center;">
                                 <a href="{{ route('admin.users.edit', $user) }}" class="btn btn-sm btn-outline-warning me-1">
                                     <i class="bi bi-pencil-square"></i>
                                 </a>

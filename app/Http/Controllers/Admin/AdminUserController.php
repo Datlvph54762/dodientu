@@ -35,10 +35,18 @@ class AdminUserController extends Controller
         $data = $request->validate([
             'name' => 'required',
             'email' => 'required|email',
-            'role' => 'required|in:admin,user'
+            'is_admin' => 'required|boolean', 
         ]);
-
-        $user->update($data);
+    
+        // Cập nhật thông tin người dùng
+        $user->name = $data['name'];
+        $user->email = $data['email'];
+    
+        // Cập nhật vai trò (is_admin) của người dùng
+        $user->is_admin = $data['is_admin'];
+    
+        // Lưu thay đổi
+        $user->save();
 
         return redirect()->route('admin.users.index')->with('success', 'Cập nhật thành công!');
     }

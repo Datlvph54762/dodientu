@@ -12,17 +12,19 @@
             @method('PUT')
             <div class="mb-3">
                 <label for="name" class="form-label">Họ tên</label>
-                <input type="text" name="name" id="name" class="form-control" value="{{ old('name', $user->name) }}" required>
+                <input type="text" name="name" id="name" class="form-control" value="{{ old('name', $user->name) }}"
+                    required>
             </div>
 
             <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
-                <input type="email" name="email" id="email" class="form-control" value="{{ old('email', $user->email) }}" required>
+                <input type="email" name="email" id="email" class="form-control" value="{{ old('email', $user->email) }}"
+                    required>
             </div>
 
-            <div class="mb-3">
-                <label for="role" class="form-label">Vai trò</label>
-                <select name="is_admin" id="is_admin" class="form-select">
+            <div class="form-group">
+                <label for="is_admin">Vai trò</label>
+                <select name="is_admin" class="form-control" required>
                     <option value="0" {{ $user->is_admin == 0 ? 'selected' : '' }}>User</option>
                     <option value="1" {{ $user->is_admin == 1 ? 'selected' : '' }}>Admin</option>
                 </select>
